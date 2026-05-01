@@ -61,12 +61,38 @@ h6 {
   isolation: isolate;
 }
 
+body {
+  background-color: #363636;
+  /*color: #a8a7a7;*/
+  color: #fff;
+}
+
+button {
+  -webkit-appearance: none;
+  border-radius: 0;
+  text-align: inherit;
+  background: #e8175d;
+  border-radius: 5px;
+  box-shadow: none;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  color: inherit;
+  font: inherit;
+  padding: 5px;
+}
+
 h1 {
   font-size: 42px;
   text-transform: uppercase;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
 }
 
 .fact {
@@ -74,6 +100,7 @@ h1 {
   line-height: 1.4;
   font-family: sans-serif;
   font-family: "Karla", sans-serif;
+  background-color: #474747;
 }
 
 .tag {
@@ -83,6 +110,6 @@ h1 {
   font-weight: 700;
 }
 
-ul {
-  list-style: none;
+.fact-form {
+  background-color: #474747;
 }
