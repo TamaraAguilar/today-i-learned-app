@@ -68,7 +68,7 @@ body {
   /*color: #a8a7a7;*/
   color: #fff;
   font-family: "Karla", sans-serif;
-  padding: 40px;
+  padding: 48px 64px;
 }
 
 h1 {
@@ -98,6 +98,7 @@ button {
   padding: 5px;
 }
 
+/* MAIN LAYOUT */
 .header {
   margin-bottom: 40px;
   display: flex;
@@ -108,18 +109,26 @@ button {
 .fact {
   font-size: 20px;
   line-height: 1.4;
-  font-family: sans-serif;
   font-family: "Karla", sans-serif;
   background-color: #474747;
   margin-bottom: 16px;
   padding: 16px 24px;
+  letter-spacing: -1px;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .fact-form {
   background-color: #474747;
   margin-bottom: 40px;
-  padding: 16px 24px;
-  text-align: center;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 16px;
 }
 
 .tag {
@@ -130,10 +139,172 @@ button {
 
   padding-left: 10px;
   padding-right: 10px;
+  border-radius: 16px;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.vote-buttons {
+  margin-left: auto;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 48px;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.logo img {
+  height: 68px;
+  width: 68px;
+}
+
+.source:link,
+.source:visited {
+  color: #c5c0c0;
+  text-decoration: none;
+  margin-left: 12px;
+  transform: 0.3s;
+}
+
+.source:hover,
+.source:active {
+  color: #cc5179;
+}
+
+.btn {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 17px;
+  padding: 16px 13px;
+  background-image: linear-gradient(
+    55deg,
+    hsl(340deg 82% 50%) 0%,
+    hsl(341deg 80% 51%) 7%,
+    hsl(341deg 78% 52%) 14%,
+    hsl(341deg 76% 53%) 21%,
+    hsl(342deg 74% 53%) 29%,
+    hsl(342deg 72% 54%) 36%,
+    hsl(342deg 70% 54%) 43%,
+    hsl(342deg 68% 55%) 50%,
+    hsl(342deg 66% 55%) 57%,
+    hsl(342deg 64% 55%) 64%,
+    hsl(341deg 62% 55%) 71%,
+    hsl(341deg 60% 56%) 79%,
+    hsl(341deg 58% 56%) 86%,
+    hsl(341deg 56% 56%) 93%,
+    hsl(340deg 54% 56%) 100%
+  );
+  transition: 0.3s;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.btn-large {
+  font-size: 20px;
+  padding: 20px 32px 17px;
+}
+
+.btn-all-categories {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.btn-category {
+  width: 100%;
+  background-image: none;
+}
+
+.category {
+  margin-bottom: 16px;
+}
+
+.btn:hover {
+  transform: scale(110%) rotate(-2deg);
+}
+
+.vote-buttons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.vote-buttons button:hover {
+  background-color: #363636;
+}
+
+.vote-buttons button {
+  background-color: #6d6a6a;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.fact-form input,
+.fact-form select {
+  background-color: #6d6a6a;
+  border: none;
+  border-radius: 100px;
+  padding: 16px;
+  font-size: 18px;
+  color: inherit;
+  font-family: inherit;
+}
+
+.fact-form input::placeholder {
+  color: #ccc6c6;
+}
+
+.fact-form span {
+  font-weight: 600;
+  font-size: 18px;
+  margin-right: 18px;
+}
+
+.fact-form input:first-child {
+  flex-grow: 1;
+}
+
+/*  MEDIA QUERIES  */
+@media (max-width: 1200px) {
+  .fact {
+    flex-direction: column;
+    align-items: end;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1000px) {
+  body {
+    padding: 32px 48px;
+  }
+
+  .fact-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .fact-form input,
+  .fact-form select {
+    width: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
 }
