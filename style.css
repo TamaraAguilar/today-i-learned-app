@@ -278,6 +278,10 @@ button {
   flex-grow: 1;
 }
 
+.hidden {
+  display: none;
+}
+
 /*  MEDIA QUERIES  */
 @media (max-width: 1200px) {
   .fact {
