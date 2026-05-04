@@ -40,8 +40,10 @@ const factsList = document.querySelector('.facts-list');
 // Create DOM elements: Render facts in list
 factsList.innerHTML = '';
 
-const htmlArr = initialFacts.map(
-  (fact) => `<li class="fact">
+// Function to map every fact list into HTML
+const buildFactsHTML = (data) => {
+  return data.map(
+    (fact) => `<li class="fact">
               <p>
                 ${fact.text}
                 <a
@@ -60,9 +62,16 @@ const htmlArr = initialFacts.map(
                 <button>⛔️ ${fact.votesFalse}</button>
               </div>
             </li>`,
-);
+  );
+};
 
-htmlArr.forEach((el) => factsList.insertAdjacentHTML('afterbegin', el));
+// Function to insert every fact in DOM
+const insertFacts = (factsHTML) =>
+  factsHTML.forEach((fact) => factsList.insertAdjacentHTML('beforeend', fact));
+
+// Call functions
+const factsHTML = buildFactsHTML(initialFacts);
+insertFacts(factsHTML);
 
 // Function to toggle form visibility
 btn.addEventListener('click', function () {
