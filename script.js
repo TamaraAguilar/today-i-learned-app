@@ -1,3 +1,14 @@
+const CATEGORIES = [
+  { name: 'technology', color: '#3b82f6' },
+  { name: 'science', color: '#16a34a' },
+  { name: 'finance', color: '#ef4444' },
+  { name: 'society', color: '#eab308' },
+  { name: 'entertainment', color: '#db2777' },
+  { name: 'health', color: '#14b8a6' },
+  { name: 'history', color: '#f97316' },
+  { name: 'news', color: '#8b5cf6' },
+];
+
 const initialFacts = [
   {
     id: 1,
@@ -40,6 +51,10 @@ const factsList = document.querySelector('.facts-list');
 // Create DOM elements: Render facts in list
 factsList.innerHTML = '';
 
+// Function to find the color tag
+const findColorTag = (category) =>
+  CATEGORIES.find((cat) => cat.name == category).color;
+
 // Function to map every fact list into HTML
 const buildFactsHTML = (data) => {
   return data.map(
@@ -53,7 +68,7 @@ const buildFactsHTML = (data) => {
                   >(Source)</a
                 >
               </p>
-              <span style="background-color: #cc5179" class="tag"
+              <span style="background-color: ${findColorTag(fact.category)}" class="tag"
                 >${fact.category.toUpperCase()}</span
               >
               <div class="vote-buttons">
@@ -69,9 +84,25 @@ const buildFactsHTML = (data) => {
 const insertFacts = (factsHTML) =>
   factsHTML.forEach((fact) => factsList.insertAdjacentHTML('beforeend', fact));
 
-// Call functions
-const factsHTML = buildFactsHTML(initialFacts);
-insertFacts(factsHTML);
+// Function to fetch data
+const url = supabaseUrl + '/facts';
+const loadFacts = async () => {
+  // Load data from supabase
+  const res = await fetch(url, {
+    headers: {
+      apikey: supabaseKey,
+      authorization: `Bearer ${supabaseKey}`,
+    },
+  });
+
+  const data = await res.json();
+
+  const factsHTML = buildFactsHTML(data);
+  console.log(factsHTML);
+  insertFacts(factsHTML);
+};
+
+loadFacts();
 
 // Function to toggle form visibility
 btn.addEventListener('click', function () {
